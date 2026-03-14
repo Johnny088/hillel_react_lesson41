@@ -1,17 +1,21 @@
-import axios from 'axios';
 import type { ProductType } from '../../types/productType';
 import { useEffect, useState } from 'react';
+import { fetchProducts } from '../../services/productsService';
+import { ProductList } from '../ProductList/ProductList';
 export const App = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [search, setSearch] = useState<string>('coco');
   useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get<ProductType[]>(
-        'https://dummyjson.com/products',
-      );
-      setProducts({ ...data });
+    const getProducts = async () => {
+      const { products } = await fetchProducts({ search });
+      setProducts(products);
     };
-    fetchData();
-  }, []);
-  console.log(products);
-  return <></>;
+    getProducts();
+  }, [search]);
+
+  return (
+    <>
+      <ProductList products={products} />
+    </>
+  );
 };
