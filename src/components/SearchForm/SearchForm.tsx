@@ -1,6 +1,10 @@
-export const SearchForm = () => {
+interface Props {
+  searchQuery: (item: string) => void;
+}
+export const SearchForm = ({ searchQuery }: Props) => {
   const formHandler = (formData: FormData) => {
-    const varSearch = formData.get('search') as string;
+    const newQuery = formData.get('search') as string;
+    searchQuery(newQuery);
   };
   return (
     <form action={formHandler}>
