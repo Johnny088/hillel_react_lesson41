@@ -12,7 +12,7 @@ export const SearchForm = ({ searchQuery }: Props) => {
   };
   return (
     <form action={formHandler}>
-      <label htmlFor={`search-${id}`}></label>
+      <label htmlFor={`search-${id}`}>Search</label>
       <input id={`search-${id}`} name="search" type="text" />
       <button>Search</button>
     </form>
