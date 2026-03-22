@@ -21,7 +21,6 @@
   text-align: center;
   background-color: rgba(72, 77, 102, 0.9);
   color: white;
-  z-index: 1000;
 }
 .image {
   width: 300px;
