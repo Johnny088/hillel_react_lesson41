@@ -1,4 +1,5 @@
 import { useId } from 'react';
+import css from './SearchForm.module.css';
 interface Props {
   searchQuery: (item: string) => void;
 }
@@ -11,10 +12,15 @@ export const SearchForm = ({ searchQuery }: Props) => {
     }
   };
   return (
-    <form action={formHandler}>
+    <form action={formHandler} className={css.form}>
       <label htmlFor={`search-${id}`}>Search</label>
-      <input id={`search-${id}`} name="search" type="text" />
-      <button>Search</button>
+      <input
+        className={css.searchInput}
+        id={`search-${id}`}
+        name="search"
+        type="text"
+      />
+      <button className={css.searchBtn}>Search</button>
     </form>
   );
 };

@@ -7,7 +7,7 @@ interface fetchProductsParams {
 }
 
 export const fetchProducts = async ({ search }: fetchProductsParams) => {
-  const limit: number = 15;
+  const limit: number = 16;
   const { data } = await axios.get<{ products: ProductType[] }>(
     'https://dummyjson.com/products/search',
     {
