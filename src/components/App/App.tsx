@@ -36,7 +36,7 @@ export const App = () => {
         <Modal product={selectedProduct} onClose={onModalClose} />
       )}
       {products.length > 0 ? (
-        <ProductList products={products} onClickHandler={onModalOpen} />
+        <ProductList products={products} onModalOpen={onModalOpen} />
       ) : (
         <h2>Nothing was found</h2>
       )}

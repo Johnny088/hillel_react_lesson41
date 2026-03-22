@@ -2,11 +2,11 @@ import type { ProductType } from '../../types/productType';
 import css from './ProductCard.module.css';
 interface Props {
   item: ProductType;
-  onClickHandler: (item: ProductType) => void;
+  onModalOpen: (item: ProductType) => void;
 }
-export const ProductCard = ({ item, onClickHandler }: Props) => {
+export const ProductCard = ({ item, onModalOpen }: Props) => {
   const clickHandler = () => {
-    onClickHandler(item);
+    onModalOpen(item);
   };
   return (
     <>

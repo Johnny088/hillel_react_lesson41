@@ -6,6 +6,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .modal {
   margin-top: 60px;
@@ -20,6 +21,7 @@
   text-align: center;
   background-color: rgba(72, 77, 102, 0.9);
   color: white;
+  z-index: 1000;
 }
 .image {
   width: 300px;

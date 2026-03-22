@@ -18,15 +18,15 @@ export const Modal = ({ product, onClose }: Props) => {
     };
   }, [onClose]);
   return (
-    <div className={css.backdrop}>
-      <div className={css.modal}>
+    <div onClick={onClose} className={css.backdrop}>
+      <div className={css.modal} onClick={e => e.stopPropagation()}>
         <button onClick={onClose} className={css.closeBtn}>
           close
         </button>
         <img src={product.images[0]} alt="photo" className={css.image} />
         <p>{product.title}</p>
         <p>{product.description}</p>
-        <p>{product.price}</p>
+        <p>${product.price}</p>
       </div>
     </div>
   );
