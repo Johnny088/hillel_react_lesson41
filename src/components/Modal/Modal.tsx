@@ -6,6 +6,15 @@ interface Props {
   onClose: () => void;
 }
 export const Modal = ({ product, onClose }: Props) => {
+  const onCloseTest = (e: React.MouseEvent<HTMLDivElement>) => {
+    // console.log('target');
+    // console.log(e.target);
+    // console.log(`current target`);
+    // console.log(e.currentTarget);
+    if (e.currentTarget === e.target) {
+      onClose();
+    }
+  };
   useEffect(() => {
     const handlerKeyDown = (event: KeyboardEvent) => {
       if (event.code === 'Escape') {
@@ -14,12 +23,12 @@ export const Modal = ({ product, onClose }: Props) => {
     };
     document.addEventListener('keydown', handlerKeyDown);
     return () => {
-      removeEventListener('keydown', handlerKeyDown);
+      document.removeEventListener('keydown', handlerKeyDown);
     };
   }, [onClose]);
   return (
-    <div onClick={onClose} className={css.backdrop}>
-      <div className={css.modal} onClick={e => e.stopPropagation()}>
+    <div id="backdrop" onClick={onCloseTest} className={css.backdrop}>
+      <div id="modal" className={css.modal}>
         <button onClick={onClose} className={css.closeBtn}>
           close
         </button>
